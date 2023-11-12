@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Step</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<div id="progress-bar">
+        <div id="progress" style="width: 0;"></div>
+    </div>
+
+  
+    <form id="step-form" class="form-step">
+      <div class="step-links">
+        <span class="step-link" onclick="jumpToStep(1)">Bio-data</span>
+        <span class="step-link" onclick="jumpToStep(2)">O-level</span>
+        <span class="step-link" onclick="jumpToStep(3)">Course</span>
+        <span class="step-link" onclick="jumpToStep(4)">Uploads</span>
+        <span class="step-link" onclick="jumpToStep(5)">Declaration</span>
+      </div>
+      
+      <!-- Step 1: Bio-data -->
+      <div class="step" data-step="1">
+        <h4> BIODATA ENTRY </h4>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required> <br>
+        
+        <label>Sex:</label>
+        <select>
+            <option>Male</option>
+            <option>Female</option>
+        </select> <br>
+        
+          <label for="phone">Phone No:</label>
+        <input type="phone" id="phone" name="phone" required> <br>
+        
+          <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required> <br>
+        
+          <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="DOB" required> <br>
+        
+        <label for="address">Contact Address:</label>
+        <input type="text" id="address" name="address" required> <br>
+        
+        <label>Disbality:</label>
+        <select>
+            <option>Yes</option>
+            <option>No</option>
+        </select> <br>
+        
+        <label>Religion:</label>
+        <select>
+            <option>Islam</option>
+            <option>Christianity</option>
+            <option>Others</option>
+        </select> <br>
+        
+         <label>Nature of Disability:</label>
+         <input type="text" id="disbality" name="disbality" required> <br>
+      <!--    <textarea id="disability" name="disability" rows="5" cols="30" required></textarea> -->
+   <br>
+      
+      <p  style="margin-top: 0;"> NEXT OF KIN </p>
+      
+      <label for="name">Name:</label>
+        <input type="text" id="name_1" name="name_1" required> <br>
+        
+        <label for="phone">Phone No:</label>
+        <input type="phone" id="phone_1" name="phone_1" required> <br>
+        
+          <label for="email">Email:</label>
+        <input type="email" id="email_1" name="email_1" required> <br>
+      
+         <label for="address">Contact Address:</label>
+        <input type="text" id="address_1" name="address_1" required> <br>
+        
+           <label for="relatnshp">Relationship?:</label>
+        <input type="text" id="relatnshp" name="relatnshp" required> <br>
+      
+        <!-- Add more fields for Bio-data here --> <br>
+        <button class="next-step">Next</button>
+      </div>
+  
+      
+      <!-- Step 2: O-level result -->
+      <div class="step" data-step="2">
+        <h4> O'LEVEL RESULT ENTRY </h4>
+      
+        <label for="oLevel">Number of Sitting(s):</label>
+        <select id="oLevel" onchange="changeDetails()">
+          <option>Select</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select> <br>
+      
+        <!-- Olevel -->
+        <div class="result_1" style="display: none;">
+          <h4> First Sitting </h4>
+      
+          <label> Exam Centre </label>
+          <input type="text" name="examCentre" placeholder="Enter your Exam Centre"> <br>
+
+          <label> Exam Type </label>
+          <select id="examType">
+            <option>Select</option>
+            <option value="Neco(may)">Neco(June/July)</option>
+            <option value="Waec(may)">Waec(May/June)</option>
+            <option value="Neco(GCE)">Neco GCE</option>
+            <option value="Waec(GCE)">Waec GCE</option>
+          </select> <br>
+
+          <label> Exam Year </label>
+          <select id="examYear">
+            <option value="2023">Select</option>
+            <option value="2022">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+            <option value="2009">2009</option>
+            <option value="2008">2008</option>
+            <option value="2007">2007</option>
+            <option value="2006">2006</option>
+            <option value="2005">2005</option>
+            <option value="2004">2004</option>
+            <option value="2003">2003</option>
+            <option value="2002">2002</option>
+            <option value="2001">2001</option>
+            <option value="2000">2000</option>
+          </select> <br>
+          
+          <label> Exam Number </label>
+          <input type="text" name="examNumber" placeholder="Enter your Exam Centre"><br>
+
+          <label> Department </label>
+          <select id="deptment" onchange="ChangeDept()">
+            <option>Select</option>
+            <option value="sciencedept">Science</option>
+            <option value="commerDept">Commerce</option>
+            <option value="artDept">Art</option>
+          </select>
+          
+          
+          <!-- Science Department -->
+          <div class="science" style="display: none;">
+            <div class="deparmentCourses" style="width: 100%;">
+              <div class="courseDept" style="width: 70%;">
+              <select id="sciDeptment1">
+                <option>Select</option>
+                <option value="English Language">English Language</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Physics">Physics</option>
+                <option value="Biology">Biology</option>
+                <option value="Economics">Economics</option>
+                <option value="Civic Education">Civic Education</option>
+                <option value="Agricultural Sci">Agricultural Science</option>
+                <option value="Animal Husbandry">Animal Husbandry</option>
+                <option value="Yoruba">Yoruba Language</option>
+                <option value="geo">Geography</option>
+                <option value="fmath">Further Mathematics</option>
+                <option value="RMI">Religious And Moral Instructions</option>
+                <option value="Data Processing">Data Processing</option>
+              </select>
+            </div>
+            <div class="gradeDept" style="width: 20%;">
+              <select id="gradeDeptment1">
+                <option>Select</option>
+                <option value="AR">Awaiting Result</option>
+                <option value="A1">A1</option>
+                <option value="A2">A2</option>
+                <option value="B1">B1</option>
+                <option value="B2">B2</option>
+                <option value="B3">B3</option>
+                <option value="C4">C4</option>
+                <option value="C5">C5</option>
+                <option value="C6">C6</option>
+                <option value="D7">D7</option>
+                <option value="E8">E8</option>
+                <option value="F9">F9</option>
+              </select>
+            </div>
+            </div>
+
+            <div class="deparmentCourses" style="width: 100%;">
+              <div class="courseDept" style="width: 70%;">
+              <select id="scideptment2">
+                <option>Select</option>
+                <option value="English Language">English Language</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Physics">Physics</option>
+                <option value="Biology">Biology</option>
+                <option value="Economics">Economics</option>
+                <option value="Civic Education">Civic Education</option>
+                <option value="Agricultural Sci">Agricultural Science</option>
+                <option value="Animal Husbandry">Animal Husbandry</option>
+                <option value="Yoruba">Yoruba Language</option>
+                <option value="geo">Geography</option>
+                <option value="fmath">Further Mathematics</option>
+                <option value="RMI">Religious And Moral Instructions</option>
+                <option value="Data Processing">Data Processing</option>
+              </select>
+            </div>
+            <div class="gradeDept" style="width: 20%;">
+              <select id="gradeDeptment2">
+                <option>Select</option>
+                <option value="AR">Awaiting Result</option>
+                <option value="A1">A1</option>
+                <option value="A2">A2</option>
+                <option value="B1">B1</option>
+                <option value="B2">B2</option>
+                <option value="B3">B3</option>
+                <option value="C4">C4</option>
+                <option value="C5">C5</option>
+                <option value="C6">C6</option>
+                <option value="D7">D7</option>
+                <option value="E8">E8</option>
+                <option value="F9">F9</option>
+              </select>
+            </div>
+            </div>
+
+            <div class="deparmentCourses" style="width: 100%;">
+              <div class="courseDept" style="width: 70%;">
+              <select id="scideptment3">
+                <option>Select</option>
+                <option value="English Language">English Language</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Physics">Physics</option>
+                <option value="Biology">Biology</option>
+                <option value="Economics">Economics</option>
+                <option value="Civic Education">Civic Education</option>
+                <option value="Agricultural Sci">Agricultural Science</option>
+                <option value="Animal Husbandry">Animal Husbandry</option>
+                <option value="Yoruba">Yoruba Language</option>
+                <option value="geo">Geography</option>
+                <option value="fmath">Further Mathematics</option>
+                <option value="RMI">Religious And Moral Instructions</option>
+                <option value="Data Processing">Data Processing</option>
+              </select>
+            </div>
+            <div class="gradeDept" style="width: 20%;">
+              <select id="gradeDeptment3">
+                <option>Select</option>
+                <option value="AR">Awaiting Result</option>
+                <option value="A1">A1</option>
+                <option value="A2">A2</option>
+                <option value="B1">B1</option>
+                <option value="B2">B2</option>
+                <option value="B3">B3</option>
+                <option value="C4">C4</option>
+                <option value="C5">C5</option>
+                <option value="C6">C6</option>
+                <option value="D7">D7</option>
+                <option value="E8">E8</option>
+                <option value="F9">F9</option>
+              </select>
+            </div>
+            </div>
+
+            <button onclick="displayInfo()">Display Information</button>
+            <p class="displayinfos">Please fill in all the required fields.</p>
+            <div id="infoDisplay"></div>
+        </div>
+    </div> <br>
+
+        <!-- commerce Department -->
+        <div class="commerce" style="display: none;">
+          <h1>hello</h1>  
+        </div> <br>
+      
+        <!-- art Department -->
+        <div class="art" style="display: none;">
+          <h1>hello</h1>  
+        </div>
+
+        <!-- Second Olevel -->
+        <div class="result_2" style="display: none;">
+          <h4> Second Sitting </h4>
+      
+          <label> Exam Details </label>
+          <input type="text" placeholder="Enter your Exam No">
+        </div> <br>
+
+        <!-- Add more fields for Course here --> <br>
+        <button class="prev-step">Previous</button>
+        <button class="next-step">Next</button>
+        
+      </div>
+      
+  
+      <!-- Step 3: Course -->
+      <div class="step" data-step="3">
+        <h4> COURSE OF STUDY </h4>
+
+        <label for="selected_course">School of*</label>
+        <select id="selected_course" name="selected_course" onchange="changeCourse()" required>
+          <option >Select</option>
+          <option value="CIT">Communication and Information Tech.</option>
+          <option value="AST">Applied Sciences and Tech.</option>
+          <option value="BMS">Business and Management Studies</option>
+          <option value="ET">Engineering Technology</option>
+          <option value="ES">Environmental Studies</option>
+          <option value="Entrepre">Entrepreneurship</option>
+          <option value="IJMB">IJMB</option>
+          <option value="GS">General Studies</option>
+          <!-- Add more course options here -->
+        </select>
+
+
+        <!-- DEPARTMENT -->
+        <!-- Communication and Information Tech. -->
+        <div class="commInfo" style="display: none;">
+          <label> Dept/Course</label>
+          <select>
+            <option >Select</option>
+            <option value="LIS">Library and Information Science</option>
+            <option value="Mass Communication">Mass Communication</option>
+            <option value="Office Technology Management">Office Technology Management</option>
+          </select>
+        </div>
+
+        <!-- Applied Science and Tech. -->
+        <div class="appScience" style="display: none;">
+          <label> Dept/Course</label>
+          <select>
+            <option >Select</option>
+            <option value="Agricultural Technology">Agricultural Technology</option>
+            <option value="Applied Physics">Applied Physics</option>
+            <option value="Biochemical and Chemical Sciences">Biochemical and Chemical Sciences</option>
+            <option value="Biological Sciences">Biological Sciences</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Food Technology">Food Technology</option>
+            <option value="Hospitality Management">Hospitality Management</option>
+            <option value="Science Technology Science">Science Technology Science</option>
+            <option value="Statistics">Statistics</option>
+          </select> 
+        </div>
+
+        <!-- Business and Management Studies -->
+        <div class="bizManagement" style="display: none;">
+          <label> Dept/Course</label>
+          <select>
+            <option >Select</option>
+            <option value="Accountancy">Accountancy</option>
+            <option value="Banking and Finance">Banking and Finance</option>
+            <option value="Business Administration">Business Administration</option>
+            <option value="Business Studies">Business Studies</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Procurement and Supply">Procurement and Supply Chain Management</option>
+            <option value="Public Administration">Public Administration</option>
+          </select> 
+        </div>
+
+        <!-- Engineering Technology -->
+        <div class="engTech" style="display: none;">
+          <label> Dept/Course</label>
+          <select>
+            <option >Select</option>
+            <option value="Agric and Bio-Engineering">Agric and Bio-Engineering</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <option value="Computer Engineering Tech.">Computer Engineering Tech.</option>
+            <option value="Electrical Electronics Engineering">Electrical Electronics Engineering</option>
+            <option value="Mechnical Engineering">Mechnical Engineering</option>
+            <option value="Mechatronics Engineering">Mechatronics Engineering</option>
+          </select>
+        </div>
+
+        <!-- Environmental Studies -->
+        <div class="envStudies" style="display: none;">
+          <label> Dept/Course</label>
+          <select>
+            <option >Select</option>
+            <option value="Architectural Technology">Architectural Technology</option>
+            <option value="Building Technology">Building Technology</option>
+            <option value="Estate Management and Valuation">Estate Management and Valuation</option>
+            <option value="Quantity Surveying">Quantity Surveying</option>
+            <option value="Urban and Regional Planning">Urban and Regional Planning</option>
+          </select> 
+        </div>
+
+        <!-- Entrepreneurship -->
+        <div class="entrePre" style="display: none;">
+          <label> Dept/Course</label>
+          <select>
+            <option >Select</option>
+            <option value="Entrepreneurship">Entrepreneurship</option>
+          </select> 
+        </div>
+
+        <!-- IJMB -->
+        <div class="IJMB" style="display: none;">
+          <label> Dept/Course</label>
+          <select>
+            <option >Select</option>
+            <option value="IJMB">IJMB</option>
+          </select>
+        </div>
+
+        <!-- General Studies -->
+        <div class="GST" style="display: none;">
+          <label> Dept/Course</label>
+          <select>
+            <option >Select</option>
+            <option value="General Studies">General Studies</option>
+          </select>
+        </div>
+
+
+
+        <!-- Choice of Jamb -->
+        <div class="JambChoice">
+          <label> Choice*</label>
+          <select>
+            <option value="1st">1st</option>
+            <option value="2nd">2nd</option>
+          </select>
+        </div>
+
+        <!-- Add more fields for Course here --> <br>
+        <button class="prev-step">Previous</button>
+        <button class="next-step">Next</button>
+      </div>
+  
+      <!-- Step 4: Uploads -->
+      <div class="step" data-step="4">
+        <h4> UPLOADS </h4>
+        <label for="resume">Only accept Jpeg, Jpg and Png</label>
+        <input type="file" id="upload" name="resume" accept=".jpg, png, jpeg" required>
+        <p class="imageError"> </p>
+        <div id="imagePreview"></div>
+        <!-- Add more file upload fields for Uploads here --> <br>
+        <button class="prev-step">Previous</button>
+        <button class="next-step">Next</button>
+      </div>
+  
+      <!-- Step 5: Declaration -->
+      <div class="step" data-step="5">
+        <label for="agree">I agree to the terms and conditions:</label> <br>
+        <input type="checkbox" id="agree" name="agree" required>
+        <!-- Add more declaration fields here --> <br>
+        <button class="prev-step">Previous</button>
+        <button type="submit">Submit</button>
+      </div>
+      
+      
+    </form>
+
+  <script src="script.js"></script>
+
+  <script>
+
+// Upload
+document.getElementById('upload').addEventListener('change', function() {
+var allowedFormats = ['.jpg', '.jpeg', '.png'];
+var maxFileSize = 100 * 1024; // 200KB in bytes
+var fileInput = this;
+var fileName = fileInput.value;
+var fileExtension = fileName.substring(fileName.lastIndexOf('.'));
+var fileSize = fileInput.files[0].size;
+
+if (allowedFormats.indexOf(fileExtension.toLowerCase()) === -1) {
+    document.querySelector('.imageError').innerHTML = 'Invalid file format. Please upload a file with one of the following formats: JPG, JPEG, PNG.';
+    
+    // Or this way if you dont want to style from css 
+    // const imageError = document.querySelector('.imageError');
+    // imageError.innerHTML = 'Invalid file format. Please upload a file with one of the following formats: JPG, JPEG, PNG.';
+    // imageError.style.color = 'red';
+    
+    // alert('Invalid file format. Please upload a file with one of the following formats: JPG, JPEG, PNG.');
+    fileInput.value = ''; // Clear the input field
+    document.getElementById('imagePreview').innerHTML = ''; // Clear the preview
+} else if (fileSize > maxFileSize) {
+  document.querySelector('.imageError').innerHTML = 'File size exceeds the maximum limit of 200KB';
+  // alert('File size exceeds the maximum limit of 200KB.');
+    fileInput.value = ''; // Clear the input field
+    document.getElementById('imagePreview').innerHTML = ''; // Clear the preview
+} else {
+  const imageErrors = document.querySelector('.imageError');
+    imageErrors.innerHTML = 'Image Upload Successfully';
+    imageErrors.style.color = 'green';
+    // Preview the image
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+        document.getElementById('imagePreview').innerHTML = '<img src="' + e.target.result + '" alt="Image Preview" width="150" height="150">';
+    };
+
+    reader.readAsDataURL(fileInput.files[0]);
+}
+});
+
+
+// Declaration Checked
+const agreeCheckbox = document.getElementById("agree");
+const prevButton = document.querySelector(".prev-step");
+
+agreeCheckbox.addEventListener("change", () => {
+  const shouldHidePrevButton = agreeCheckbox.checked;
+
+  prevButtons.forEach((prevButton) => {
+    prevButton.style.display = shouldHidePrevButton ? "none" : "inline-block";
+  });
+});
+
+
+
+// Olevel
+function changeDetails(){
+  const oLevel = document.getElementById("oLevel").value;
+  const singleResult = document.querySelector(".result_1");
+  const doubleResult = document.querySelector(".result_2")
+
+  singleResult.style.display = 'none';
+    doubleResult.style.display = 'none';
+
+  if(oLevel === "1"){
+    singleResult.style.display = 'block';
+  }
+
+  else if(oLevel === "2"){
+    singleResult.style.display = 'block';
+    doubleResult.style.display = 'block';
+  }
+
+}
+
+// Department
+function ChangeDept(){
+  const deptment = document.getElementById("deptment").value;
+  const science = document.querySelector(".science");
+  const commerce = document.querySelector(".commerce");
+  const art = document.querySelector(".art");
+
+  science.style.display = 'none';
+  commerce.style.display = 'none';
+  art.style.display = 'none';
+
+  if(deptment === 'sciencedept'){
+    science.style.display = 'block';
+  }  else if(deptment === 'commerDept'){
+    commerce.style.display = 'block';
+  }  else{
+    art.style.display = 'block';
+  }
+}
+
+
+
+// Step-Form
+  const form = document.getElementById("step-form");
+  const steps = Array.from(form.querySelectorAll(".step"));
+  const stepLinks = Array.from(document.querySelectorAll(".step-link"));
+  const nextButtons = Array.from(form.querySelectorAll(".next-step"));
+  const prevButtons = Array.from(form.querySelectorAll(".prev-step"));
+
+  let currentStep = 0;
+
+  function showStep(step) {
+    steps.forEach((s) => (s.style.display = "none"));
+    steps[step].style.display = "block";
+
+    const progress = ((step + 1) / steps.length) * 100;
+    document.getElementById("progress").style.width = `${progress}%`;
+
+    // Update the step link styles
+    stepLinks.forEach((link, index) => {
+      link.style.backgroundColor = index === step ? "#4caf50" : "";
+      link.style.color = index === step ? "#ffff" : "";
+      
+    });
+  }
+
+  function jumpToStep(step) {
+    if (step >= 1 && step <= steps.length) {
+      showStep(step - 1);
+      currentStep = step - 1;
+    }
+  }
+
+  nextButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+  });
+
+  prevButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+  });
+
+  showStep(currentStep);
+
+
+  </script>
+
+</body>
+</html>

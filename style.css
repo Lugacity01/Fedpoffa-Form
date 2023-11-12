@@ -1,0 +1,89 @@
+.form-step, #progress-bar {
+  width: 550px;
+  margin: 0 auto;
+}
+
+.step {
+  display: none;
+}
+
+h4, p {
+  margin-bottom: 10px;
+  color: rgb(129, 128, 126);
+}
+
+button {
+  margin-top: 10px;
+}
+
+.step input[type], select, textarea{
+  width: 70%;
+  background-color: rgb(229, 228, 226, 0.4);
+  border: none;
+  padding: 7px;
+  margin-bottom: 5px;
+  outline: none;
+}
+
+input[type="file"] {
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.step-link {
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-right: 10px;
+  background-color: #DAF7A6;
+  padding: 8px;
+}
+.next-step, .prev-step, button[type=submit]{
+  cursor: pointer;
+  border: none;  
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 1rem;
+  padding: 15px 30px;
+
+}
+.step-links {
+  margin-bottom: 15px;
+}
+ #progress-bar {
+  background-color: #DAF7A6;
+  height: 20px;
+  margin-bottom: 20px;
+}
+
+#progress {
+  height: 100%;
+  background-color: #4caf50;
+}
+
+.deparmentCourses{
+  display: flex;
+}
+
+
+#infoDisplay {
+  display: none;
+  border: 1px solid #000;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.displayinfos{
+  display: none;
+    color: red;
+}
+
+form #stepAgree{
+  display: flex;
+}
+
+.imageError{
+  color: red;
+}
